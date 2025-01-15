@@ -109,7 +109,7 @@ app.post('/login', async(request, response) => {
     
             if(verifyPassword){
                 const token = jwt.sign({userId: checkUserInDB[0].userId}, 'MY_SECRET_TOKEN')
-                response.status(201).send({userId: checkUserInDB[0].userId, jwtToken: token, username: checkUserInDB[0].username})
+                response.status(201).send({userId: checkUserInDB[0].userId, jwtToken: token, username: checkUserInDB[0].userName})
             }
             else{
                 response.status(401).send({message: "Incorrect Password"})
